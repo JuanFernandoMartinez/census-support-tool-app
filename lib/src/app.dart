@@ -14,7 +14,10 @@ class App extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => const FormAplicationScreen(),
+        '/': (context) => FormAplicationScreen(
+              title: "Test",
+              description: "Este es un test",
+            ),
       },
     );
   }
