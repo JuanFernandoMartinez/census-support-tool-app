@@ -15,8 +15,9 @@ class App extends StatelessWidget {
       ),
       routes: {
         '/': (context) => FormAplicationScreen(
-              title: "Test",
-              description: "Este es un test",
+              title: "Censo socioeconómico",
+              description:
+                  "Este formulario tiene como objetivo recopilar información sobre las condiciones socioeconómicas de nuestra comunidad. Sus respuestas nos ayudarán a comprender mejor las necesidades de la población y a desarrollar programas y estrategias que mejoren la calidad de vida de todos.",
             ),
       },
     );
