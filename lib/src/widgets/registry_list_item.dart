@@ -20,7 +20,9 @@ class RegistryListItem extends StatelessWidget{
         Row(
         children: [
           const SizedBox(width: 20,),
-          Column( children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start, 
+            children: [
             Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
             const SizedBox(height: 2,),
             Container(
@@ -41,9 +43,9 @@ class RegistryListItem extends StatelessWidget{
           ],),
           Expanded(child: Container(),),
           const Row( children: [
-             Icon(Icons.play_arrow, size: 35,),
+             Icon(Icons.play_arrow, size: 35, color: Color(0xff154425),),
              SizedBox(width: 4,),
-             Icon(Icons.delete, size: 35,),
+             Icon(Icons.delete, size: 35,color: Color(0xff154425),),
              SizedBox(width: 20,),
           ],)
         ],
