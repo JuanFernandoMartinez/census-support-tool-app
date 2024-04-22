@@ -14,7 +14,7 @@ class App extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => FormAplicationScreen(
+        '/': (context) => const FormAplicationScreen(
               title: "Censo socioeconómico",
               description:
                   "Este formulario tiene como objetivo recopilar información sobre las condiciones socioeconómicas de nuestra comunidad. Sus respuestas nos ayudarán a comprender mejor las necesidades de la población y a desarrollar programas y estrategias que mejoren la calidad de vida de todos.",

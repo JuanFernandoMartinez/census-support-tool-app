@@ -48,18 +48,8 @@ class _FormAplicationState extends State<FormAplicationScreen> {
                   textAlign: TextAlign.left,
                 ),
                 Text(widget.description),
-                Material(
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  clipBehavior: Clip.none,
-                  color: const Color(0xFFDFFFEA),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: FormSheet(category: "Composición familiar"),
-                  ),
-                )
+                FormSheet(category: "Composición familiar"),
+                FormSheet(category: "Infraestructura"),
               ],
             ),
           ),
