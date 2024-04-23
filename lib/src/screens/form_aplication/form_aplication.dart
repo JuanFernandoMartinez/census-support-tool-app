@@ -50,7 +50,7 @@ class _FormAplicationState extends State<FormAplicationScreen> {
             ),
             IconButton(
               icon: const Icon(Icons.save_outlined),
-              onPressed: () => print('Settings button pressed!'),
+              onPressed: _showSaveRegisterDialog,
             ),
           ],
         ),
@@ -90,5 +90,56 @@ class _FormAplicationState extends State<FormAplicationScreen> {
             ),
           ),
         ));
+  }
+
+  void _showSaveRegisterDialog() {
+    String name = '';
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Enter Name',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20),
+                TextField(
+                  onChanged: (value) {
+                    name = value;
+                  },
+                  decoration: InputDecoration(hintText: 'Enter your name'),
+                ),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Cancel'),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        // You can do something with the entered name here
+                        print('Entered name: $name');
+                        Navigator.pop(context);
+                      },
+                      child: Text('Save'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }
