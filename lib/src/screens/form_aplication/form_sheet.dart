@@ -7,28 +7,12 @@ import 'package:flutter/widgets.dart';
 class FormSheet extends StatelessWidget {
   final String category;
 
-  final List<Widget> formFields = [
-    const FormTextField(labelText: 'Nombres', keyboardType: TextInputType.text),
-    const FormTextField(
-        labelText: 'Apellidos', keyboardType: TextInputType.text),
-    const FormDateField(labelText: 'Fecha de nacimiento'),
-    const FormTextField(labelText: 'Edad', keyboardType: TextInputType.text),
-    const FormTextField(
-        labelText: 'Parentesco', keyboardType: TextInputType.text),
-    const FormTextField(
-        labelText: 'Número de identificación',
-        keyboardType: TextInputType.number),
-    const FormTextField(
-        labelText: 'Tipo de identificación', keyboardType: TextInputType.text),
-    const FormTextField(
-        labelText: 'Escolaridad', keyboardType: TextInputType.text),
-    const FormTextField(
-        labelText: 'Ocupación', keyboardType: TextInputType.text),
-  ];
+  final List<Widget> formFields;
 
-  FormSheet({
+  const FormSheet({
     super.key,
     required this.category,
+    required this.formFields,
   });
 
   @override
