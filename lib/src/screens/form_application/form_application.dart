@@ -1,6 +1,6 @@
-import 'package:census_support_tool_app/src/screens/form_aplication/components/date_form_field.dart';
-import 'package:census_support_tool_app/src/screens/form_aplication/components/text_form_field.dart';
-import 'package:census_support_tool_app/src/screens/form_aplication/form_sheet.dart';
+import 'package:census_support_tool_app/src/screens/form_application/components/date_form_field.dart';
+import 'package:census_support_tool_app/src/screens/form_application/components/text_form_field.dart';
+import 'package:census_support_tool_app/src/screens/form_application/form_sheet.dart';
 import 'package:flutter/material.dart';
 
 class FormAplicationScreen extends StatefulWidget {

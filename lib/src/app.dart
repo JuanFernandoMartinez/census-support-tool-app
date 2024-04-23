@@ -1,4 +1,4 @@
-import 'package:census_support_tool_app/src/screens/form_aplication/form_aplication.dart';
+import 'package:census_support_tool_app/src/screens/form_application/form_application.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
