@@ -31,7 +31,8 @@ class _FormDateFieldState extends State<FormDateField> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return TextFormField(
+      readOnly: true,
       onTap: () {
         DatePicker.showDatePicker(
           context,
@@ -46,20 +47,15 @@ class _FormDateFieldState extends State<FormDateField> {
           locale: LocaleType.es,
         );
       },
-      child: InputDecorator(
-        decoration: InputDecoration(
-          labelText: widget.labelText,
-          border: const OutlineInputBorder(),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(_selectedDate != null
-                ? DateFormat('dd/MM/yyyy').format(_selectedDate!)
-                : 'Seleccione una fecha'),
-            const Icon(Icons.calendar_today),
-          ],
-        ),
+      decoration: InputDecoration(
+        labelText: widget.labelText,
+        border: const OutlineInputBorder(),
+        suffixIcon: const Icon(Icons.calendar_today),
+      ),
+      controller: TextEditingController(
+        text: _selectedDate != null
+            ? DateFormat('dd/MM/yyyy').format(_selectedDate!)
+            : '',
       ),
     );
   }

@@ -56,7 +56,9 @@ class FormSheet extends StatelessWidget {
               shrinkWrap: true,
               itemCount: formFields.length,
               itemBuilder: (context, index) {
-                return formFields[index];
+                return Column(
+                  children: [formFields[index], const SizedBox(height: 10)],
+                );
               },
             ))
           ],
