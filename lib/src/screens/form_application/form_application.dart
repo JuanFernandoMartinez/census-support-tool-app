@@ -1,5 +1,4 @@
 import 'package:census_support_tool_app/src/bloc/events/form_application/save_record_event.dart';
-import 'package:census_support_tool_app/src/bloc/events/form_application/show_save_record_event.dart';
 import 'package:census_support_tool_app/src/bloc/form_application_bloc.dart';
 import 'package:census_support_tool_app/src/screens/form_application/components/date_form_field.dart';
 import 'package:census_support_tool_app/src/screens/form_application/components/saving_dialog.dart';
@@ -39,8 +38,8 @@ class FormAplicationScreen extends StatefulWidget {
 }
 
 class _FormAplicationState extends State<FormAplicationScreen> {
-  String recordName = "";
   bool _showDialog = false;
+  String recordName = "h";
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +110,9 @@ class _FormAplicationState extends State<FormAplicationScreen> {
               child: Center(
                 child: SavingDialog(
                   onSave: (name) {
-                    recordName = name;
+                    context
+                        .read<FormApplicationBloc>()
+                        .add(SaveRecordEvent(name: name));
                     setState(() {
                       _showDialog = false;
                     });

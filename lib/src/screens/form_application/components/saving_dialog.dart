@@ -38,9 +38,7 @@ class _SavingDialogState extends State<SavingDialog> {
           decoration: InputDecoration(hintText: widget.hintText),
           initialValue: _name,
           onSaved: (value) {
-            setState(() {
-              _name = value!;
-            });
+            _name = value!;
           },
         ),
       ),
@@ -52,6 +50,7 @@ class _SavingDialogState extends State<SavingDialog> {
         TextButton(
           onPressed: () {
             if (_formKey.currentState!.validate()) {
+              _formKey.currentState!.save();
               widget.onSave(_name);
             }
           },
