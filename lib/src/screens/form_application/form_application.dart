@@ -1,7 +1,12 @@
+import 'package:census_support_tool_app/src/bloc/events/form_application/save_record_event.dart';
+import 'package:census_support_tool_app/src/bloc/events/form_application/show_save_record_event.dart';
+import 'package:census_support_tool_app/src/bloc/form_application_bloc.dart';
 import 'package:census_support_tool_app/src/screens/form_application/components/date_form_field.dart';
+import 'package:census_support_tool_app/src/screens/form_application/components/saving_dialog.dart';
 import 'package:census_support_tool_app/src/screens/form_application/components/text_form_field.dart';
 import 'package:census_support_tool_app/src/screens/form_application/form_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FormAplicationScreen extends StatefulWidget {
   final String title;
@@ -34,112 +39,95 @@ class FormAplicationScreen extends StatefulWidget {
 }
 
 class _FormAplicationState extends State<FormAplicationScreen> {
+  String recordName = "";
+  bool _showDialog = false;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: const Color(0xFF4FB171),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {},
+    return Stack(
+      children: [
+        Scaffold(
+          appBar: AppBar(
+            backgroundColor: const Color(0xFF4FB171),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {},
+            ),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.add_to_photos_outlined),
+                onPressed: () => print('Search button pressed!'),
+              ),
+              IconButton(
+                  icon: const Icon(Icons.save_outlined),
+                  onPressed: () => {
+                        setState(() {
+                          _showDialog = true;
+                        })
+                      })
+            ],
           ),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.add_to_photos_outlined),
-              onPressed: () => print('Search button pressed!'),
-            ),
-            IconButton(
-              icon: const Icon(Icons.save_outlined),
-              onPressed: _showSaveRegisterDialog,
-            ),
-          ],
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  widget.title,
-                  style: const TextStyle(
-                    fontFamily: 'Inria_sans',
-                    fontSize: 35,
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    widget.title,
+                    style: const TextStyle(
+                      fontFamily: 'Inria_sans',
+                      fontSize: 35,
+                    ),
+                    textAlign: TextAlign.left,
                   ),
-                  textAlign: TextAlign.left,
-                ),
-                Text(widget.description),
-                Flexible(
-                    child: ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: widget.categories.length,
-                  itemBuilder: ((context, index) {
-                    return Column(
-                      children: [
-                        FormSheet(
-                            category: widget.categories[index],
-                            formFields: widget.fields),
-                        const SizedBox(height: 30)
-                      ],
-                    );
-                  }),
-                ))
-              ],
+                  Text(widget.description),
+                  Flexible(
+                      child: ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: widget.categories.length,
+                    itemBuilder: ((context, index) {
+                      return Column(
+                        children: [
+                          FormSheet(
+                              category: widget.categories[index],
+                              formFields: widget.fields),
+                          const SizedBox(height: 30)
+                        ],
+                      );
+                    }),
+                  )),
+                ],
+              ),
             ),
           ),
-        ));
-  }
-
-  void _showSaveRegisterDialog() {
-    String name = '';
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  'Enter Name',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 20),
-                TextField(
-                  onChanged: (value) {
-                    name = value;
+        ),
+        if (_showDialog)
+          Positioned.fill(
+            child: Container(
+              color: Colors.black54,
+              child: Center(
+                child: SavingDialog(
+                  onSave: (name) {
+                    recordName = name;
+                    setState(() {
+                      _showDialog = false;
+                    });
                   },
-                  decoration: InputDecoration(hintText: 'Enter your name'),
+                  onCancel: () {
+                    setState(() {
+                      _showDialog = false;
+                    });
+                  },
+                  title: "Guardar registro",
+                  hintText: "Nombre de registro",
                 ),
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text('Cancel'),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        // You can do something with the entered name here
-                        print('Entered name: $name');
-                        Navigator.pop(context);
-                      },
-                      child: Text('Save'),
-                    ),
-                  ],
-                ),
-              ],
+              ),
             ),
-          ),
-        );
-      },
+          )
+      ],
     );
   }
 }

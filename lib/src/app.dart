@@ -1,4 +1,4 @@
-import 'package:census_support_tool_app/src/screens/form_application/form_application.dart';
+import 'package:census_support_tool_app/src/screens/form_application/form_manager.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -14,11 +14,7 @@ class App extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => FormAplicationScreen(
-              title: "Censo socioeconómico",
-              description:
-                  "Este formulario tiene como objetivo recopilar información sobre las condiciones socioeconómicas de nuestra comunidad. Sus respuestas nos ayudarán a comprender mejor las necesidades de la población y a desarrollar programas y estrategias que mejoren la calidad de vida de todos.",
-            ),
+        '/': (context) => const FormManager(),
       },
     );
   }
