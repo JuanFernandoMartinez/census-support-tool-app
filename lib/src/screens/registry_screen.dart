@@ -78,7 +78,7 @@ class RegistryScreen extends StatelessWidget{
               child: SingleChildScrollView(
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,  
-              children: example.map((e) => Column(children: [RegistryListItem(title: e, date: DateTime.now()), const SizedBox(height: 10,)],)).toList(),
+              children: example.map((e) => Column(children: [RegistryListItem(title: e, date: DateTime.now(), registryId:  example.indexOf(e).toString()), const SizedBox(height: 10,)],)).toList(),
               ),
           ),
           ),

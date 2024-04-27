@@ -3,10 +3,11 @@
 import 'package:flutter/material.dart';
 
 class RegistryListItem extends StatelessWidget{
-  const RegistryListItem({super.key, required this.title, required this.date});
+  const RegistryListItem({super.key, required this.title, required this.date, required this.registryId});
 
   final String title;
   final DateTime date;
+  final String registryId;
   
   @override
   Widget build(BuildContext context) {
@@ -42,11 +43,11 @@ class RegistryListItem extends StatelessWidget{
               )
           ],),
           Expanded(child: Container(),),
-          const Row( children: [
-             Icon(Icons.play_arrow, size: 35, color: Color(0xff154425),),
-             SizedBox(width: 4,),
-             Icon(Icons.delete, size: 35,color: Color(0xff154425),),
-             SizedBox(width: 20,),
+          Row( children: [
+              IconButton(onPressed: (){resumeIconAction();}, icon: const Icon(Icons.play_arrow, size: 35, color: Color(0xff154425),),),
+             const SizedBox(width: 4,),
+             IconButton(onPressed: (){ deleteIconAction();}, icon: const Icon(Icons.delete, size: 35,color: Color(0xff154425),),),
+             const SizedBox(width: 20,),
           ],)
         ],
       ),
@@ -54,6 +55,19 @@ class RegistryListItem extends StatelessWidget{
       ],)
 
      );
+  }
+
+
+  
+  //resumes form by registry by using registry ID
+  int resumeIconAction(){
+    return 0;
+  }
+
+
+  //deletes form registry by using registry ID
+  int deleteIconAction(){
+    return 0;
   }
 
   
