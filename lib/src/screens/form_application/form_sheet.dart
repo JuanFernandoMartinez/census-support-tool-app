@@ -39,12 +39,12 @@ class FormSheet extends StatelessWidget {
       Material(
         elevation: 5,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
+          borderRadius: BorderRadius.circular(23.0),
         ),
         clipBehavior: Clip.none,
         color: const Color(0xFFDFFFEA),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.fromLTRB(15, 25, 15, 20),
           child: Form(
               child: Column(
             mainAxisSize: MainAxisSize.min,

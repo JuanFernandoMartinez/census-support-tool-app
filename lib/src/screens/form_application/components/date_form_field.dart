@@ -49,7 +49,16 @@ class _FormDateFieldState extends State<FormDateField> {
       },
       decoration: InputDecoration(
         labelText: widget.labelText,
-        border: const OutlineInputBorder(),
+        filled: true,
+        fillColor: Colors.white,
+        contentPadding: const EdgeInsets.all(16.0),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+          borderSide: const BorderSide(
+            color: Colors.grey,
+            width: 1.0,
+          ),
+        ),
         suffixIcon: const Icon(Icons.calendar_today),
       ),
       controller: TextEditingController(
