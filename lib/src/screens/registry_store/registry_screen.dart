@@ -2,7 +2,7 @@
 
 
 import 'package:census_support_tool_app/src/widgets/Combobox.dart';
-import 'package:census_support_tool_app/src/widgets/registry_list_item.dart';
+import 'package:census_support_tool_app/src/screens/registry_store/Components/registry_list_item.dart';
 import 'package:census_support_tool_app/src/widgets/search_field.dart';
 import 'package:flutter/material.dart';
 
