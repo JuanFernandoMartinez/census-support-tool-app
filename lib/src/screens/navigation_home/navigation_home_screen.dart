@@ -37,7 +37,7 @@ class _NavigationHomeState extends State<NavigationHome> {
 
   AppBar _appBarImplementation(BuildContext context) {
     return AppBar(
-      title: const Text('Flutter Navigation'),
+      title: const Text('Voluntario'),
     );
   }
 
@@ -54,7 +54,7 @@ class _NavigationHomeState extends State<NavigationHome> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.meeting_room_outlined),
-          label: 'Settings',
+          label: 'Comunidades',
         ),
       ],
       currentIndex: _selectedIndex,
