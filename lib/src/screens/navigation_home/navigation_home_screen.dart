@@ -25,8 +25,7 @@ class _NavigationHomeState extends State<NavigationHome> {
         children: const [
           // Your widgets for each destination
           Center(child: Text('Home Page')),
-          Center(child: Text('Settings Page')),
-
+          Center(child: Text('Registers Page')),
           //Communities screen
           CommunityManager()
         ],
@@ -46,11 +45,11 @@ class _NavigationHomeState extends State<NavigationHome> {
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          label: 'Home',
+          label: 'Inicio',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: 'Settings',
+          icon: Icon(Icons.table_chart),
+          label: 'Registros',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.meeting_room_outlined),

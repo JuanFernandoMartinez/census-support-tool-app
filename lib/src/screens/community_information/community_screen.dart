@@ -22,12 +22,17 @@ class _CommunityScreenState extends State<CommunityScreen> {
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10, 20, 10, 15),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Comunidades",
-                style: TextStyle(
-                  fontFamily: 'Inria_sans',
-                  fontSize: 25,
-                )),
+            const Text(
+              "Comunidades",
+              style: TextStyle(
+                fontFamily: 'Inria_sans',
+                fontSize: 25,
+              ),
+            ),
+            const SizedBox(height: 10),
             Combobox(
               items: widget.communities,
               onSelect: (selection) {
