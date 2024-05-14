@@ -3,6 +3,7 @@ import 'package:census_support_tool_app/src/bloc/events/community_information/lo
 import 'package:census_support_tool_app/src/bloc/events/community_information/select_comunnity_event.dart';
 import 'package:census_support_tool_app/src/bloc/states/community_information/community_initial_state.dart';
 import 'package:census_support_tool_app/src/bloc/states/community_information/community_loaded_state.dart';
+import 'package:census_support_tool_app/src/bloc/states/community_information/community_selected_state.dart';
 import 'package:census_support_tool_app/src/bloc/states/community_information/community_state.dart';
 import 'package:census_support_tool_app/src/model/Community.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,11 +54,19 @@ class CommunityInformationBloc extends Bloc<CommunityEvent, CommunityState> {
 
   CommunityInformationBloc() : super(CommunityInitialState()) {
     on<SelectCommunityEvent>(
-      (event, emit) {},
+      (event, emit) {
+        final comm = Community(
+            name: "El otoño",
+            address: "Carrera 10ma con 34",
+            admins: getCommunityNames(communities));
+        emit(CommunitySelectedState(
+            community: comm, communities: getCommunityNames(communities)));
+      },
     );
 
     on<LoadCommunitiesEvent>(
-      (event, emit) {
+      (event, emit) async {
+        await Future.delayed(const Duration(seconds: 2));
         emit(CommunityLoadedState(communities: getCommunityNames(communities)));
       },
     );

@@ -42,10 +42,12 @@ class _ComboboxState extends State<Combobox> {
         ),
         isExpanded: true,
         onChanged: (String? newValue) {
-          setState(() {
-            selectedValue = newValue!;
-            widget.onSelect(selectedValue);
-          });
+          if (newValue != null) {
+            setState(() {
+              selectedValue = newValue;
+              widget.onSelect(selectedValue);
+            });
+          }
         },
         items: widget.items.map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(
