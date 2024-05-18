@@ -1,4 +1,5 @@
 import 'package:census_support_tool_app/src/screens/form_application/form_manager.dart';
+import 'package:census_support_tool_app/src/screens/navigation_home/navigation_home_screen.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -14,7 +15,8 @@ class App extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => const FormManager(),
+        '/': (context) => const NavigationHome(),
+        '/form_application': (context) => const FormManager(),
       },
     );
   }
