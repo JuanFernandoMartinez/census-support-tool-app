@@ -1,0 +1,8 @@
+Form-title 
+Form-description
+questions(number of questions)
+Question or label 
+type of input 
+options 
+value
+EOF flag
