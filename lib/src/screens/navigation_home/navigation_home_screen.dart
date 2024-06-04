@@ -1,4 +1,5 @@
 import 'package:census_support_tool_app/src/screens/community_information/community_manager.dart';
+import 'package:census_support_tool_app/src/screens/registry_store/registry_screen.dart';
 import 'package:flutter/material.dart';
 
 class NavigationHome extends StatefulWidget {
@@ -25,7 +26,7 @@ class _NavigationHomeState extends State<NavigationHome> {
         children: const [
           // Your widgets for each destination
           Center(child: Text('Home Page')),
-          Center(child: Text('Registers Page')),
+          RegistryScreen(),
           //Communities screen
           CommunityManager()
         ],
