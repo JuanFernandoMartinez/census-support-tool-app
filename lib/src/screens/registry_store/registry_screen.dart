@@ -3,7 +3,7 @@ import 'package:census_support_tool_app/src/screens/registry_store/Components/re
 import 'package:census_support_tool_app/src/widgets/search_field.dart';
 import 'package:flutter/material.dart';
 
-List<String> example = ["hola", "mundo", "como", "estas", "hoy"];
+List<String> example = ["Control de salud--2022-04-03", "Calidad de vida--20223-06-14", "Seguridad en la casa--2021-12-09", "nivel de educación--2023-08-23", "diasnosticos clinicos--2022-04-02"];
 
 class RegistryScreen extends StatelessWidget {
   const RegistryScreen({super.key});
@@ -68,9 +68,9 @@ Widget body(context) {
       ),
 
       Combobox(
-        items: ["Palmira", "Pasto", "Popayan"],
+        items: ["Estado socioeconomico", "Educación", "Estado de la vivienda"],
         onSelect: (selection) {
-          print(selection);
+          
         },
       ),
 
@@ -103,8 +103,8 @@ Widget body(context) {
                 .map((e) => Column(
                       children: [
                         RegistryListItem(
-                            title: e,
-                            date: DateTime.now(),
+                            title: e.split("--")[0],
+                            date: DateTime.parse(e.split("--")[1]),
                             registryId: example.indexOf(e).toString()),
                         const SizedBox(
                           height: 10,
