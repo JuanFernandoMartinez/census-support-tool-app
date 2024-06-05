@@ -16,7 +16,7 @@ class CommunityManager extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) => CommunityInformationBloc(),
-        child: BlocBuilder<CommunityInformationBloc, CommunityState>(
+        child: BlocConsumer<CommunityInformationBloc, CommunityState>(
           builder: (context, state) {
             if (state is CommunityInitialState) {
               context
@@ -35,6 +35,7 @@ class CommunityManager extends StatelessWidget {
               return const Center(child: Text("Error"));
             }
           },
+          listener: (BuildContext context, CommunityState state) {},
         ));
   }
 }

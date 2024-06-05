@@ -39,7 +39,9 @@ class CardCommunityInformation extends StatelessWidget {
               Combobox(items: forms, onSelect: (selection) {}),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, "/form_application");
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFEFE5EABA2),
                   shape: RoundedRectangleBorder(
