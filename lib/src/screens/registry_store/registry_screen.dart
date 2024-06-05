@@ -3,7 +3,7 @@ import 'package:census_support_tool_app/src/screens/registry_store/Components/re
 import 'package:census_support_tool_app/src/widgets/search_field.dart';
 import 'package:flutter/material.dart';
 
-List<String> example = ["hola", "mundo", "como", "estas", "hoy"];
+List<String> example = ["Control de salud--2022-04-03", "Calidad de vida--20223-06-14", "Seguridad en la casa--2021-12-09", "nivel de educación--2023-08-23", "diasnosticos clinicos de la familias--2022-04-02"];
 
 class RegistryScreen extends StatelessWidget {
   const RegistryScreen({super.key});
