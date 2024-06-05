@@ -50,7 +50,9 @@ class _FormAplicationState extends State<FormAplicationScreen> {
             backgroundColor: const Color(0xFF4FB171),
             leading: IconButton(
               icon: const Icon(Icons.arrow_back),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
             actions: [
               IconButton(
