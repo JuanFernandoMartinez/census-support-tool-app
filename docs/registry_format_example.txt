@@ -1,0 +1,20 @@
+Encuesta socioeconomica
+Encuesta aplicada para conocer el estado de los hogares de los habitantes de la vereda
+3
+Edad
+number
+no options
+no value 
+name
+text
+no options
+Juan Fernando 
+birthday
+date
+no options
+no value 
+tipo de vivienda
+combobox
+casa,apartamento
+casa
+EOF
