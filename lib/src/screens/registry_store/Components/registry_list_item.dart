@@ -1,5 +1,7 @@
 
 
+
+
 import 'package:flutter/material.dart';
 
 class RegistryListItem extends StatelessWidget{
@@ -44,7 +46,7 @@ class RegistryListItem extends StatelessWidget{
           ],),
           Expanded(child: Container(),),
           Row( children: [
-              IconButton(onPressed: (){resumeIconAction();}, icon: const Icon(Icons.play_arrow, size: 35, color: Color(0xff154425),),),
+              IconButton(onPressed: (){resumeIconAction(context);}, icon: const Icon(Icons.play_arrow, size: 35, color: Color(0xff154425),),),
              const SizedBox(width: 4,),
              IconButton(onPressed: (){ deleteIconAction();}, icon: const Icon(Icons.delete, size: 35,color: Color(0xff154425),),),
              const SizedBox(width: 20,),
@@ -60,7 +62,8 @@ class RegistryListItem extends StatelessWidget{
 
   
   //resumes form by registry by using registry ID
-  int resumeIconAction(){
+  int resumeIconAction(BuildContext context){
+    Navigator.pushNamed(context, "/form_application");
     return 0;
   }
 
