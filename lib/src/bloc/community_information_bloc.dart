@@ -11,54 +11,32 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class CommunityInformationBloc extends Bloc<CommunityEvent, CommunityState> {
   List<Community> communities = [
     Community(
-        name: "Comunidad A",
-        address: "Calle 123, Ciudad X",
-        admins: ["Admin1", "Admin2"]),
+        name: "Villa del Sol",
+        address: "Calle 10 Sur # 78 - 45, Cali",
+        admins: ["Juan Pérez López", "María Gómez Martínez","Carlos Ruiz Hernández"]),
     Community(
-        name: "Comunidad B",
-        address: "Avenida Principal, Ciudad Y",
-        admins: ["Admin3", "Admin4"]),
+        name: "El Mirador",
+        address: "Carrera 45 # 12 - 34, Cali",
+        admins: ["Ana Castro Rodríguez", "Diego Moreno García"]),
     Community(
-        name: "Comunidad C",
-        address: "Plaza Central, Ciudad Z",
-        admins: ["Admin5", "Admin6"]),
+        name: "Conjunto Residencial Los Robles",
+        address: "Avenida 30 Norte # 21 - 56, Cali",
+        admins: ["José Sánchez Vargas", "Elizabeth Torres Jiménez"]),
     Community(
-        name: "Comunidad D",
-        address: "Calle Mayor, Ciudad W",
-        admins: ["Admin7", "Admin8"]),
+        name: "Urbanización Portal del Norte",
+        address: "Calle 145 # 16 - 89, Cali",
+        admins: ["Manuel González Ortiz", "Carolina Gutiérrez López"]),
     Community(
-        name: "Comunidad E",
-        address: "Avenida Norte, Ciudad V",
-        admins: ["Admin9", "Admin10"]),
-    Community(
-        name: "Comunidad F",
-        address: "Calle Sur, Ciudad U",
-        admins: ["Admin11", "Admin12"]),
-    Community(
-        name: "Comunidad G",
-        address: "Plaza Oeste, Ciudad T",
-        admins: ["Admin13", "Admin14"]),
-    Community(
-        name: "Comunidad H",
-        address: "Avenida Este, Ciudad S",
-        admins: ["Admin15", "Admin16"]),
-    Community(
-        name: "Comunidad I",
-        address: "Calle Este, Ciudad R",
-        admins: ["Admin17", "Admin18"]),
-    Community(
-        name: "Comunidad J",
-        address: "Avenida Sur, Ciudad Q",
-        admins: ["Admin19", "Admin20"]),
+        name: "Edificio Brisas del Mar",
+        address: " Carrera 1 Este # 4 - 23, Cali",
+        admins: ["Sandra Jiménez Romero", "Luis Delgado Morales"]),
   ];
 
   CommunityInformationBloc() : super(CommunityInitialState()) {
     on<SelectCommunityEvent>(
       (event, emit) {
-        final comm = Community(
-            name: "El otoño",
-            address: "Carrera 10ma con 34",
-            admins: getCommunityNames(communities));
+
+        Community comm = getCommunityByName(event.community);
         emit(CommunitySelectedState(
             community: comm, communities: getCommunityNames(communities)));
       },
@@ -78,5 +56,14 @@ class CommunityInformationBloc extends Bloc<CommunityEvent, CommunityState> {
       communityNames.add(community.name);
     }
     return communityNames;
+  }
+
+  Community getCommunityByName(String name) {
+    for (var community in communities) {
+      if (community.name == name) {
+        return community;
+      }
+    }
+    return Community(name: "El otoño", address: "Carrera 10ma con 34", admins: []);
   }
 }
