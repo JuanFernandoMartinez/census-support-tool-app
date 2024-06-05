@@ -21,7 +21,7 @@ Widget body(context) {
   return (Column(
     children: [
       const SizedBox(
-        height: 100,
+        height: 20,
       ),
       const SearchField(),
       const SizedBox(
